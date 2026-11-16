@@ -1,3 +1,14 @@
+import armchairPhoto from '../assets/armchair.png';
+import bedPhoto from '../assets/bed.png';
+import bedroomPhoto from '../assets/bedroom.png';
+import chestPhoto from '../assets/chest.png';
+import coffeeTablePhoto from '../assets/coffee-table.png';
+import diningRoomPhoto from '../assets/dining-room.png';
+import diningSetPhoto from '../assets/dining-set.png';
+import livingRoomPhoto from '../assets/living-room.png';
+import sofaPhoto from '../assets/sofa.png';
+import storagePhoto from '../assets/storage.png';
+
 /**
  * Демонстрационные данные главной страницы.
  * Это примеры для оформления, а не фактический ассортимент магазина.
@@ -42,21 +53,25 @@ export const CATEGORIES: Category[] = [
     id: 'living-room',
     title: 'Гостиная',
     description: 'Например, диваны, кресла и журнальные столики.',
+    image: { src: livingRoomPhoto, alt: 'Фото гостиной из раздела категории' },
   },
   {
     id: 'bedroom',
     title: 'Спальня',
     description: 'Например, кровати, прикроватные тумбы и комоды.',
+    image: { src: bedroomPhoto, alt: 'Фото спальни из раздела категории' },
   },
   {
     id: 'dining-room',
     title: 'Столовая',
     description: 'Например, обеденные столы и стулья.',
+    image: { src: diningRoomPhoto, alt: 'Фото кухни из раздела категории' },
   },
   {
     id: 'storage',
     title: 'Хранение',
     description: 'Например, комоды, стеллажи и шкафы.',
+    image: { src: storagePhoto, alt: 'Фото гардероба из раздела категории' },
   },
 ];
 
@@ -69,6 +84,7 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Гостиная' },
       { label: 'Тип', value: 'Диван' },
     ],
+    image: { src: sofaPhoto, alt: 'Фото дивана из подборки мебели' },
   },
   {
     id: 'armchair',
@@ -77,6 +93,7 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Гостиная' },
       { label: 'Тип', value: 'Кресло' },
     ],
+    image: { src: armchairPhoto, alt: 'Фото стула из подборки мебели' },
   },
   {
     id: 'coffee-table',
@@ -85,6 +102,7 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Гостиная' },
       { label: 'Тип', value: 'Стол' },
     ],
+    image: { src: coffeeTablePhoto, alt: 'Фото журнального столика из подборки мебели' },
   },
   {
     id: 'bed',
@@ -93,6 +111,7 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Спальня' },
       { label: 'Тип', value: 'Кровать' },
     ],
+    image: { src: bedPhoto, alt: 'Фото кровати из подборки мебели' },
   },
   {
     id: 'chest',
@@ -101,6 +120,7 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Спальня' },
       { label: 'Тип', value: 'Хранение' },
     ],
+    image: { src: chestPhoto, alt: 'Фото комода из подборки мебели' },
   },
   {
     id: 'dining-set',
@@ -109,5 +129,6 @@ export const PRODUCTS: Product[] = [
       { label: 'Комната', value: 'Столовая' },
       { label: 'Тип', value: 'Стол и стулья' },
     ],
+    image: { src: diningSetPhoto, alt: 'Фото кухонного набора из подборки мебели' },
   },
 ];
