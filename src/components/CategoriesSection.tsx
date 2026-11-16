@@ -14,13 +14,7 @@ function CategoriesSection() {
       <ul className="card-grid categories__grid">
         {CATEGORIES.map((category) => (
           <li key={category.id} className="category-card">
-            <ImageSlot
-              className="category-card__media"
-              image={category.image}
-              art={category.art}
-              tone={category.tone}
-              label="Фото"
-            />
+            <ImageSlot className="category-card__media" image={category.image} label="Фото" />
             <div className="category-card__body">
               <h3>{category.title}</h3>
               <p className="category-card__text">{category.description}</p>

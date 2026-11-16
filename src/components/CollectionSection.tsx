@@ -16,12 +16,7 @@ function CollectionSection() {
         {PRODUCTS.map((product) => (
           <li key={product.id}>
             <article className="product-card" aria-labelledby={`product-${product.id}`}>
-              <ImageSlot
-                className="product-card__media"
-                image={product.image}
-                art={product.art}
-                tone={product.tone}
-              />
+              <ImageSlot className="product-card__media" image={product.image} />
               <div className="product-card__body">
                 <span className="tag">Пример</span>
                 <h3 id={`product-${product.id}`}>{product.name}</h3>
