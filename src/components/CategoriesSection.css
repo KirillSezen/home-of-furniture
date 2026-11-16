@@ -1,0 +1,67 @@
+/* Мобильный экран: компактная строка — картинка слева, текст справа */
+.category-card {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.category-card__media {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+}
+
+/* В маленькой карточке метка «Фото» не нужна — заглушку видно по иллюстрации */
+.category-card__media .image-slot__badge {
+  display: none;
+}
+
+.category-card__body {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.category-card__text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Планшет: две колонки, картинка сверху */
+@media (min-width: 40em) {
+  .categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .category-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+
+  .category-card__media {
+    aspect-ratio: 4 / 3;
+    border-radius: 0;
+  }
+
+  .category-card__media .image-slot__badge {
+    display: block;
+  }
+
+  .category-card__body {
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+}
+
+/* Широкий экран: четыре в ряд */
+@media (min-width: 64em) {
+  .categories__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
