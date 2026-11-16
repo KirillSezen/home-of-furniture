@@ -1,3 +1,5 @@
+import type { Localized } from '../i18n/locales';
+
 import armchairPhoto from '../assets/armchair.png';
 import bedPhoto from '../assets/bed.png';
 import bedroomPhoto from '../assets/bedroom.png';
@@ -10,125 +12,195 @@ import sofaPhoto from '../assets/sofa.png';
 import storagePhoto from '../assets/storage.png';
 
 /**
- * Демонстрационные данные главной страницы.
- * Это примеры для оформления, а не фактический ассортимент магазина.
+ * Каталог главной страницы: категории и демонстрационные товары.
+ * Это примеры для оформления, а не подтверждённый ассортимент магазина.
+ * Каждый текст задаётся на русском и английском.
  *
- * Как заменить заглушку фотографией:
- *   1. Положите файл в src/assets/, например src/assets/sofa.jpg.
- *   2. Импортируйте его в этом файле: import sofaPhoto from '../assets/sofa.jpg';
- *   3. Добавьте карточке поле image: { src: sofaPhoto, alt: 'Описание фото' }.
- * Пока поля image нет, выводится иллюстрация-заглушка из `art`.
+ * Как добавить товар:
+ *   1. Положите фото в src/assets/ и импортируйте его в этом файле.
+ *   2. Добавьте объект в PRODUCTS: id, name, type, categories и image с alt на обоих языках.
+ *   3. В categories укажите одну или несколько категорий — по ним работает фильтр каталога.
+ *      Первая категория выводится в карточке как «Комната».
+ * Цены, наличие, размеры и материалы намеренно не указываются, пока их не подтвердит магазин.
  */
 
 export type ImageSource = {
   src: string;
-  /** Описание фотографии для скринридеров */
-  alt: string;
+  /** Описание того, что изображено на фото, — для скринридеров */
+  alt: Localized;
 };
 
-type WithImage = {
-  /** Фотография; если не задана, показывается заглушка `art` */
+export type CategoryId = 'living-room' | 'bedroom' | 'dining-room' | 'storage';
+
+export type Category = {
+  id: CategoryId;
+  title: Localized;
+  description: Localized;
   image?: ImageSource;
 };
 
-export type Category = WithImage & {
+export type Product = {
   id: string;
-  title: string;
-  description: string;
-};
-
-export type ProductSpec = {
-  label: string;
-  value: string;
-};
-
-export type Product = WithImage & {
-  id: string;
-  name: string;
-  specs: ProductSpec[];
+  name: Localized;
+  /** Тип предмета, например «Диван» */
+  type: Localized;
+  /** Категории для фильтра; первая — комната в карточке */
+  categories: [CategoryId, ...CategoryId[]];
+  image?: ImageSource;
 };
 
 export const CATEGORIES: Category[] = [
   {
     id: 'living-room',
-    title: 'Гостиная',
-    description: 'Например, диваны, кресла и журнальные столики.',
-    image: { src: livingRoomPhoto, alt: 'Фото гостиной из раздела категории' },
+    title: { ru: 'Гостиная', en: 'Living room' },
+    description: {
+      ru: 'Например, диваны, кресла и журнальные столики.',
+      en: 'For example, sofas, armchairs and coffee tables.',
+    },
+    image: {
+      src: livingRoomPhoto,
+      alt: {
+        ru: 'Светлая гостиная с бирюзовым диваном, круглым журнальным столиком и телевизором на мраморной стене',
+        en: 'Bright living room with a teal sofa, a round coffee table and a TV on a marble wall',
+      },
+    },
   },
   {
     id: 'bedroom',
-    title: 'Спальня',
-    description: 'Например, кровати, прикроватные тумбы и комоды.',
-    image: { src: bedroomPhoto, alt: 'Фото спальни из раздела категории' },
+    title: { ru: 'Спальня', en: 'Bedroom' },
+    description: {
+      ru: 'Например, кровати, прикроватные тумбы и комоды.',
+      en: 'For example, beds, bedside tables and chests of drawers.',
+    },
+    image: {
+      src: bedroomPhoto,
+      alt: {
+        ru: 'Спальня с бирюзовой кроватью у стены с подсвеченными вертикальными панелями',
+        en: 'Bedroom with a teal bed against a backlit wall of vertical panels',
+      },
+    },
   },
   {
     id: 'dining-room',
-    title: 'Столовая',
-    description: 'Например, обеденные столы и стулья.',
-    image: { src: diningRoomPhoto, alt: 'Фото кухни из раздела категории' },
+    title: { ru: 'Столовая', en: 'Dining room' },
+    description: {
+      ru: 'Например, обеденные столы и стулья.',
+      en: 'For example, dining tables and chairs.',
+    },
+    image: {
+      src: diningRoomPhoto,
+      alt: {
+        ru: 'Столовая с белым круглым столом, бирюзовыми стульями и люстрой в форме шара',
+        en: 'Dining room with a white round table, teal chairs and a sputnik chandelier',
+      },
+    },
   },
   {
     id: 'storage',
-    title: 'Хранение',
-    description: 'Например, комоды, стеллажи и шкафы.',
-    image: { src: storagePhoto, alt: 'Фото гардероба из раздела категории' },
+    title: { ru: 'Хранение', en: 'Storage' },
+    description: {
+      ru: 'Например, комоды, стеллажи и шкафы.',
+      en: 'For example, chests of drawers, shelving and wardrobes.',
+    },
+    image: {
+      src: storagePhoto,
+      alt: {
+        ru: 'Гардеробная со шкафами со стеклянными дверцами и рядами выдвижных ящиков',
+        en: 'Walk-in closet with glass-door wardrobes and rows of drawers',
+      },
+    },
   },
 ];
 
-/** Только название и общие признаки: без цен, наличия, размеров и материалов. */
+/** Только название, тип и комната: без цен, наличия, размеров и материалов. */
 export const PRODUCTS: Product[] = [
   {
     id: 'sofa',
-    name: 'Трёхместный диван',
-    specs: [
-      { label: 'Комната', value: 'Гостиная' },
-      { label: 'Тип', value: 'Диван' },
-    ],
-    image: { src: sofaPhoto, alt: 'Фото дивана из подборки мебели' },
+    name: { ru: 'Трёхместный диван', en: 'Three-seat sofa' },
+    type: { ru: 'Диван', en: 'Sofa' },
+    categories: ['living-room'],
+    image: {
+      src: sofaPhoto,
+      alt: {
+        ru: 'Два голубых трёхместных дивана и деревянный журнальный столик в светлой гостиной',
+        en: 'Two blue three-seat sofas and a wooden coffee table in a bright living room',
+      },
+    },
   },
   {
     id: 'armchair',
-    name: 'Кресло для отдыха',
-    specs: [
-      { label: 'Комната', value: 'Гостиная' },
-      { label: 'Тип', value: 'Кресло' },
-    ],
-    image: { src: armchairPhoto, alt: 'Фото стула из подборки мебели' },
+    name: { ru: 'Кресло для отдыха', en: 'Lounge armchair' },
+    type: { ru: 'Кресло', en: 'Armchair' },
+    categories: ['living-room'],
+    image: {
+      src: armchairPhoto,
+      alt: {
+        ru: 'Широкое серое мягкое кресло с подушкой у светлой стены',
+        en: 'Wide gray upholstered armchair with a cushion by a light wall',
+      },
+    },
   },
   {
     id: 'coffee-table',
-    name: 'Журнальный столик',
-    specs: [
-      { label: 'Комната', value: 'Гостиная' },
-      { label: 'Тип', value: 'Стол' },
-    ],
-    image: { src: coffeeTablePhoto, alt: 'Фото журнального столика из подборки мебели' },
+    name: { ru: 'Журнальный столик', en: 'Coffee table' },
+    type: { ru: 'Стол', en: 'Table' },
+    categories: ['living-room'],
+    image: {
+      src: coffeeTablePhoto,
+      alt: {
+        ru: 'Круглый чёрный журнальный столик на трёх ножках на белом пушистом ковре',
+        en: 'Round black three-legged coffee table on a white fluffy rug',
+      },
+    },
   },
   {
     id: 'bed',
-    name: 'Двуспальная кровать',
-    specs: [
-      { label: 'Комната', value: 'Спальня' },
-      { label: 'Тип', value: 'Кровать' },
-    ],
-    image: { src: bedPhoto, alt: 'Фото кровати из подборки мебели' },
+    name: { ru: 'Двуспальная кровать', en: 'Double bed' },
+    type: { ru: 'Кровать', en: 'Bed' },
+    categories: ['bedroom'],
+    image: {
+      src: bedPhoto,
+      alt: {
+        ru: 'Двуспальная кровать с бирюзовым мягким изголовьем и серым постельным бельём',
+        en: 'Double bed with a teal upholstered headboard and gray bedding',
+      },
+    },
   },
   {
     id: 'chest',
-    name: 'Комод',
-    specs: [
-      { label: 'Комната', value: 'Спальня' },
-      { label: 'Тип', value: 'Хранение' },
-    ],
-    image: { src: chestPhoto, alt: 'Фото комода из подборки мебели' },
+    name: { ru: 'Комод', en: 'Chest of drawers' },
+    type: { ru: 'Хранение', en: 'Storage' },
+    categories: ['bedroom', 'storage'],
+    image: {
+      src: chestPhoto,
+      alt: {
+        ru: 'Серо-зелёный комод с четырьмя ящиками и круглыми золотистыми ручками',
+        en: 'Gray-green chest with four drawers and round gold-colored handles',
+      },
+    },
   },
   {
     id: 'dining-set',
-    name: 'Обеденная группа',
-    specs: [
-      { label: 'Комната', value: 'Столовая' },
-      { label: 'Тип', value: 'Стол и стулья' },
-    ],
-    image: { src: diningSetPhoto, alt: 'Фото кухонного набора из подборки мебели' },
+    name: { ru: 'Обеденная группа', en: 'Dining set' },
+    type: { ru: 'Стол и стулья', en: 'Table and chairs' },
+    categories: ['dining-room'],
+    image: {
+      src: diningSetPhoto,
+      alt: {
+        ru: 'Деревянный обеденный стол с бирюзовыми стульями в светлой столовой',
+        en: 'Wooden dining table with teal chairs in a bright dining room',
+      },
+    },
   },
 ];
+
+/** Фильтр каталога: все товары или одна категория */
+export type CatalogFilter = 'all' | CategoryId;
+
+export function productsFor(filter: CatalogFilter): Product[] {
+  return filter === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.categories.includes(filter));
+}
+
+export function categoryTitle(id: CategoryId): Localized {
+  return CATEGORIES.find((c) => c.id === id)?.title ?? { ru: id, en: id };
+}
