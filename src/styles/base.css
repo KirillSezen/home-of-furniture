@@ -87,6 +87,12 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+/* Кнопки наследуют шрифт страницы */
+button {
+  font: inherit;
+  color: inherit;
+}
+
 /* Видимый фокус для клавиатуры */
 :focus-visible {
   outline: var(--focus-ring-width) solid var(--color-focus);
