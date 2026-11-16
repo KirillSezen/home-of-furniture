@@ -2,12 +2,36 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HomeOfFurniture</title>
+    <!--
+      Значения по умолчанию — русские (язык первого посещения).
+      Держите их в соответствии с meta в src/i18n/messages.ts: после загрузки
+      страницы и при смене языка их обновляет LanguageProvider.
+    -->
+    <title>Home Of Furniture — мебель для дома</title>
+    <meta
+      name="description"
+      content="Сайт мебельного магазина: примеры мебели для гостиной, спальни, столовой и хранения, каталог с фильтром по комнатам и контакты для связи."
+    />
+    <meta name="theme-color" content="#f6f0e6" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Home Of Furniture" />
+    <meta property="og:title" content="Home Of Furniture — мебель для дома" />
+    <meta
+      property="og:description"
+      content="Сайт мебельного магазина: примеры мебели для гостиной, спальни, столовой и хранения, каталог с фильтром по комнатам и контакты для связи."
+    />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p>Для работы сайта включите JavaScript.</p>
+      <p lang="en">Please enable JavaScript to view this site.</p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
