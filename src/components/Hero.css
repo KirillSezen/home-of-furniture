@@ -25,11 +25,20 @@
   gap: var(--space-3);
 }
 
-/* Планшет: кнопки в строку */
+.hero__media {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Планшет: кнопки в строку, изображение во всю ширину — пониже */
 @media (min-width: 40em) {
   .hero__actions {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .hero__media {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -43,5 +52,9 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-8);
     align-items: center;
+  }
+
+  .hero__media {
+    aspect-ratio: 5 / 4;
   }
 }
