@@ -1,13 +1,16 @@
+import type { Messages } from './i18n/messages';
+
 export type NavItem = {
   /** id секции на странице, на которую ведёт ссылка */
   id: string;
-  label: string;
+  /** Ключ подписи в messages.nav */
+  labelKey: keyof Messages['nav'];
 };
 
 /** Разделы главной страницы — якоря на секции. */
 export const NAV_ITEMS: readonly NavItem[] = [
-  { id: 'categories', label: 'Категории' },
-  { id: 'collection', label: 'Подборка' },
-  { id: 'about', label: 'О магазине' },
-  { id: 'contacts', label: 'Контакты' },
+  { id: 'categories', labelKey: 'categories' },
+  { id: 'catalog', labelKey: 'catalog' },
+  { id: 'about', labelKey: 'about' },
+  { id: 'contacts', labelKey: 'contacts' },
 ];

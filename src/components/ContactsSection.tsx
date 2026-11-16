@@ -1,10 +1,10 @@
-import { STORE } from '../data/store';
+import { useI18n } from '../i18n/useI18n';
 import PageSection from './PageSection';
 import StoreValue from './StoreValue';
 
 import './ContactsSection.css';
 
-/** Поля и способ вывода. Значения берутся из src/data/store.ts. */
+/** Поля и способ вывода. Значения — в src/data/store.ts, подписи — в src/i18n/messages.ts. */
 const FIELDS = [
   { key: 'name' },
   { key: 'phone', linkAs: 'tel' },
@@ -14,23 +14,17 @@ const FIELDS = [
 ] as const;
 
 function ContactsSection() {
+  const { t } = useI18n();
+
   return (
-    <PageSection
-      id="contacts"
-      title="Контакты"
-      lead="Позвоните или напишите — ответим на вопросы о мебели из подборки."
-      tone="muted"
-    >
+    <PageSection id="contacts" title={t.contacts.title} lead={t.contacts.lead} tone="muted">
       <div className="contacts__card">
         <dl className="contacts__list">
           {FIELDS.map((item) => (
             <div key={item.key} className="contacts__row">
-              <dt>{STORE[item.key].label}</dt>
+              <dt>{t.contacts.labels[item.key]}</dt>
               <dd>
-                <StoreValue
-                  field={STORE[item.key]}
-                  linkAs={'linkAs' in item ? item.linkAs : undefined}
-                />
+                <StoreValue field={item.key} linkAs={'linkAs' in item ? item.linkAs : undefined} />
               </dd>
             </div>
           ))}

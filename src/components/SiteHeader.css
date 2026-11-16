@@ -13,11 +13,15 @@
   padding-block: var(--space-3);
 }
 
+/* Название может перенестись на вторую строку, чтобы рядом поместился переключатель языка */
 .site-header__brand {
   display: inline-flex;
+  flex: 1 1 0;
   align-items: center;
   gap: var(--space-3);
+  min-width: 0;
   min-height: 2.75rem;
+  line-height: var(--leading-snug);
   color: var(--color-text);
   font-family: var(--font-heading);
   font-size: var(--text-lg);
@@ -50,8 +54,14 @@
   background-color: var(--color-accent);
 }
 
+/* Телефон и планшет: название и язык в первой строке, навигация — во второй */
+.site-header .lang-switcher {
+  order: 1;
+}
+
 .site-header__nav {
   flex: 1 1 100%;
+  order: 2;
 }
 
 .site-nav {
@@ -81,26 +91,36 @@
   text-decoration: underline;
 }
 
-/* Планшет и шире: название слева, навигация справа в одну строку */
 @media (min-width: 40em) {
   .site-header__inner {
-    flex-wrap: nowrap;
     padding-block: var(--space-4);
+  }
+}
+
+/* Широкий экран: название слева, навигация и язык справа в одну строку */
+@media (min-width: 64em) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+  }
+
+  .site-header__brand {
+    flex: 0 1 auto;
+    margin-right: auto;
   }
 
   .site-header__nav {
     flex: 0 1 auto;
+    order: 1;
+  }
+
+  .site-header .lang-switcher {
+    order: 2;
   }
 
   .site-nav {
     justify-content: flex-end;
-    margin-inline: 0 calc(-1 * var(--space-3));
-  }
-}
-
-@media (min-width: 64em) {
-  .site-nav {
     gap: var(--space-2);
+    margin-inline: 0;
   }
 
   .site-nav__link {

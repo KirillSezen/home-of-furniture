@@ -1,5 +1,6 @@
-/* Карточка как в «Подборке мебели»: фото сверху во всю ширину, текст под ним */
+/* Карточка как в каталоге: фото сверху во всю ширину, текст под ним */
 .category-card {
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -7,6 +8,47 @@
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.category-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgb(43 36 32 / 0.12);
+}
+
+/* Фокус с клавиатуры подсвечивает всю карточку */
+.category-card:has(.category-card__link:focus-visible) {
+  outline: var(--focus-ring-width) solid var(--color-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.category-card__link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Растягиваем ссылку на всю карточку: кликабельна и картинка, и текст */
+.category-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.category-card__link:hover {
+  color: var(--color-text);
+}
+
+.category-card__action {
+  margin-top: var(--space-2);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.category-card:hover .category-card__action {
+  text-decoration: underline;
 }
 
 .category-card__media {
