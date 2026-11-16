@@ -1,0 +1,64 @@
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: var(--space-5);
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+.placeholder__label {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.placeholder--content {
+  min-height: 10rem;
+}
+
+/*
+ * Заглушка фотографии: стена и деревянный пол по мотивам референса.
+ * Подпись лежит на светлой плашке, поэтому её контраст не зависит от фона.
+ */
+.placeholder--image {
+  aspect-ratio: 4 / 3;
+  align-items: end;
+  border-style: solid;
+  border-color: var(--color-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    to bottom,
+    var(--color-surface-muted) 0 72%,
+    var(--color-wood) 72% 100%
+  );
+  overflow: hidden;
+}
+
+.placeholder--image .placeholder__label {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 40em) {
+  .placeholder--content {
+    min-height: 14rem;
+  }
+}
+
+/* Планшет: изображение во всю ширину, поэтому ниже, чтобы не занимать весь экран */
+@media (min-width: 40em) and (max-width: 63.99em) {
+  .placeholder--image {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Широкий экран: изображение в колонке рядом с текстом */
+@media (min-width: 64em) {
+  .placeholder--image {
+    aspect-ratio: 5 / 4;
+  }
+}

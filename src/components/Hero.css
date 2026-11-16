@@ -1,0 +1,47 @@
+.hero {
+  padding-block: var(--space-7) var(--space-section);
+}
+
+/* Мобильный экран: текст, затем изображение */
+.hero__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.hero__content {
+  display: grid;
+  gap: var(--space-5);
+  align-content: center;
+}
+
+.hero__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Планшет: кнопки в строку */
+@media (min-width: 40em) {
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Широкий экран: текст и изображение рядом */
+@media (min-width: 64em) {
+  .hero {
+    padding-top: var(--space-section);
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
