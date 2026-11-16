@@ -1,28 +1,23 @@
-/* Мобильный экран: компактная строка — картинка слева, текст справа */
+/* Карточка как в «Подборке мебели»: фото сверху во всю ширину, текст под ним */
 .category-card {
   display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-3);
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .category-card__media {
-  aspect-ratio: 1;
-  border-radius: var(--radius-sm);
-}
-
-/* В маленькой карточке метка «Фото» не нужна — заглушку видно по иллюстрации */
-.category-card__media .image-slot__badge {
-  display: none;
+  aspect-ratio: 4 / 3;
 }
 
 .category-card__body {
   display: grid;
+  align-content: start;
   gap: var(--space-1);
+  padding: var(--space-4) var(--space-5) var(--space-5);
 }
 
 .category-card__text {
@@ -30,32 +25,11 @@
   font-size: var(--text-sm);
 }
 
-/* Планшет: две колонки, картинка сверху */
+/* Планшет: две колонки */
 @media (min-width: 40em) {
   .categories__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-5);
-  }
-
-  .category-card {
-    grid-template-columns: 1fr;
-    align-items: start;
-    padding: 0;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-  }
-
-  .category-card__media {
-    aspect-ratio: 4 / 3;
-    border-radius: 0;
-  }
-
-  .category-card__media .image-slot__badge {
-    display: block;
-  }
-
-  .category-card__body {
-    padding: var(--space-4) var(--space-5) var(--space-5);
   }
 }
 
