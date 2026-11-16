@@ -31,8 +31,9 @@
   --color-accent: #c9962b;
   --color-accent-soft: #f1dfb4;
 
-  /* Дерево — заглушка фото и подвал */
+  /* Дерево — иллюстрации-заглушки и подвал */
   --color-wood: #6b4f3a;
+  --color-floor: #a8835f;
   --color-dark: #2e241e;
   --color-on-dark: #f3ebe0;
   --color-on-dark-muted: #cbbcaa;
