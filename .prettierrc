@@ -1,0 +1,17 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "printWidth": 100,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/(?!.*\\.(css|scss|sass|less|svg|png|jpe?g|gif|webp|avif|ico|woff2?)(\\?.*)?$)",
+    "^\\.{1,2}/(?!.*\\.(css|scss|sass|less|svg|png|jpe?g|gif|webp|avif|ico|woff2?)(\\?.*)?$)",
+    "\\.(css|scss|sass|less|svg|png|jpe?g|gif|webp|avif|ico|woff2?)(\\?.*)?$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderSideEffects": false
+}
