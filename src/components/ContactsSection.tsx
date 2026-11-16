@@ -35,10 +35,6 @@ function ContactsSection() {
             </div>
           ))}
         </dl>
-        {/* Удалите примечание, когда в src/data/store.ts появятся реальные данные */}
-        <p className="contacts__note">
-          Данные в пунктирных рамках — заглушки. Реальные контакты будут добавлены позже.
-        </p>
       </div>
     </PageSection>
   );
