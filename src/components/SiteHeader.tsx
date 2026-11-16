@@ -1,3 +1,4 @@
+import { STORE, storeText } from '../data/store';
 import { NAV_ITEMS } from '../navigation';
 
 import './SiteHeader.css';
@@ -6,10 +7,10 @@ function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        {/* Заглушка: название и логотип магазина пока не утверждены */}
+        {/* Название — из src/data/store.ts; знак — заглушка до утверждения логотипа */}
         <a className="site-header__brand" href="/">
           <span className="site-header__brand-mark" aria-hidden="true" />
-          <span>Название магазина</span>
+          <span>{storeText(STORE.name)}</span>
         </a>
 
         <nav className="site-header__nav" aria-label="Основная навигация">

@@ -1,0 +1,8 @@
+/* Заглушка данных: пунктирная рамка видна и на светлом, и на тёмном фоне */
+.store-slot {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border: 1px dashed currentColor;
+  border-radius: var(--radius-sm);
+  font-style: italic;
+}

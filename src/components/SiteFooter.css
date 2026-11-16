@@ -2,18 +2,21 @@
 .site-footer {
   --color-focus: var(--color-focus-on-dark);
 
-  padding-block: var(--space-7);
+  padding-block: var(--space-7) var(--space-5);
   background-color: var(--color-dark);
   color: var(--color-on-dark);
 }
 
+/* Мобильный экран: блоки друг под другом */
 .site-footer__inner {
   display: grid;
   gap: var(--space-6);
 }
 
-.site-footer__about {
+.site-footer__about,
+.site-footer__section {
   display: grid;
+  align-content: start;
   gap: var(--space-2);
 }
 
@@ -28,29 +31,66 @@
   font-size: var(--text-sm);
 }
 
-.site-footer__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
+.site-footer__heading {
+  color: var(--color-on-dark-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-footer__list {
+  display: grid;
   padding: 0;
   list-style: none;
 }
 
-.site-footer__nav a {
+.site-footer__list a {
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
   color: var(--color-on-dark);
 }
 
-.site-footer__nav a:hover {
+.site-footer__list a:hover {
   color: var(--color-on-dark);
   text-decoration-color: var(--color-accent);
 }
 
+.site-footer__list--contacts {
+  gap: var(--space-2);
+  color: var(--color-on-dark-muted);
+}
+
+.site-footer__copy {
+  max-width: none;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgb(243 235 224 / 0.16);
+  color: var(--color-on-dark-muted);
+  font-size: var(--text-sm);
+}
+
+/* Планшет: две колонки — разделы и контакты */
 @media (min-width: 40em) {
   .site-footer__inner {
-    grid-template-columns: 1fr auto;
-    align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer__about {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Широкий экран: три колонки */
+@media (min-width: 64em) {
+  .site-footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-7);
+  }
+
+  .site-footer__about {
+    grid-column: auto;
   }
 }

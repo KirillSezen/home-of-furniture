@@ -4,9 +4,10 @@ export type NavItem = {
   label: string;
 };
 
-/** Разделы страницы. Пока это якоря на одностраничном каркасе. */
+/** Разделы главной страницы — якоря на секции. */
 export const NAV_ITEMS: readonly NavItem[] = [
-  { id: 'catalog', label: 'Каталог' },
+  { id: 'categories', label: 'Категории' },
+  { id: 'collection', label: 'Подборка' },
   { id: 'about', label: 'О магазине' },
   { id: 'contacts', label: 'Контакты' },
 ];

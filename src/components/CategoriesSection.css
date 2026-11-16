@@ -1,0 +1,41 @@
+/* Карточка как в «Подборке мебели»: фото сверху во всю ширину, текст под ним */
+.category-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-card__media {
+  aspect-ratio: 4 / 3;
+}
+
+.category-card__body {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.category-card__text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Планшет: две колонки */
+@media (min-width: 40em) {
+  .categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+}
+
+/* Широкий экран: четыре в ряд */
+@media (min-width: 64em) {
+  .categories__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
