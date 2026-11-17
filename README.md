@@ -46,6 +46,6 @@ npm run perf       # аудит производительности, подро
 
 <details>
 <summary>Нажмите, чтобы посмотреть скриншоты</summary>
-<img src="screenshots/screenshot-main.png" alt="Основной скриншот приложения (поисковая строка, трендовые фильмы)">
-<img src="screenshots/screenshot-catalog.png" alt="Скриншот (все фильмы)">
+<img src="screenshots/screenshot-main.png" alt="Основной скриншот приложения, пример нашей мебели">
+<img src="screenshots/screenshot-catalog.png" alt="Скриншот каталога">
 </details>
