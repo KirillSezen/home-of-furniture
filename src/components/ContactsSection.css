@@ -1,0 +1,61 @@
+.contacts__card {
+  display: grid;
+  gap: var(--space-5);
+  max-width: var(--content-width-narrow);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.contacts__list {
+  display: grid;
+  margin: 0;
+}
+
+/* Мобильный экран: подпись над значением */
+.contacts__row {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contacts__row:first-child {
+  padding-top: 0;
+}
+
+.contacts__row dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.contacts__row dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Ссылки tel:/mailto: — удобная область касания */
+.contacts__row dd a {
+  display: inline-block;
+  padding-block: var(--space-2);
+}
+
+.contacts__note {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Планшет и шире: подпись и значение в строку */
+@media (min-width: 40em) {
+  .contacts__card {
+    padding: var(--space-6);
+  }
+
+  .contacts__row {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-4);
+  }
+}

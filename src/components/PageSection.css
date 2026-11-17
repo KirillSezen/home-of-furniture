@@ -1,0 +1,28 @@
+.page-section {
+  padding-block: var(--space-section);
+}
+
+.page-section--muted {
+  background-color: var(--color-surface-muted);
+}
+
+.page-section__header {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--content-width-narrow);
+  margin-bottom: var(--space-6);
+}
+
+/* Небольшой горчичный акцент над заголовком — только декор */
+.page-section__header::before {
+  content: '';
+  width: 2.5rem;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+}
+
+.page-section__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}

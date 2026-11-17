@@ -1,3 +1,7 @@
 dist
 coverage
+test-results
+playwright-report
+blob-report
+.lighthouseci
 package-lock.json

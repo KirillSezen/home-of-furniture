@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440">
+  <title>Two-seat sofa icon</title>
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#FFF0C8"/>
+      <stop offset="1" stop-color="#F8D88E"/>
+    </linearGradient>
+    <linearGradient id="seat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE7A8"/>
+      <stop offset="1" stop-color="#F6BE59"/>
+    </linearGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F9D17B"/>
+      <stop offset="1" stop-color="#EBAE45"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke="#39291E" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <!-- rear back cushions -->
+    <path d="M104 205V119Q104 70 153 70H320V218H104Z" fill="url(#back)"/>
+    <path d="M320 70H487Q536 70 536 119V205H320Z" fill="url(#back)"/>
+    <!-- cushion seam -->
+    <path d="M320 78V211" fill="none" stroke="#B77B35" stroke-width="4"/>
+
+    <!-- lower seat platform -->
+    <path d="M91 216Q91 196 112 196H528Q549 196 549 216V311H91Z" fill="#F6C96F"/>
+
+    <!-- seat cushions -->
+    <path d="M116 211Q116 196 138 196H303Q320 196 320 216V286Q320 302 303 302H137Q116 302 116 282Z" fill="url(#seat)"/>
+    <path d="M320 216Q320 196 338 196H502Q524 196 524 216V282Q524 302 502 302H337Q320 302 320 286Z" fill="url(#seat)"/>
+
+    <!-- front base -->
+    <path d="M91 302H549V354Q549 370 532 370H108Q91 370 91 354Z" fill="url(#base)"/>
+
+    <!-- left arm, shaped as one continuous padded form -->
+    <path d="M105 177Q105 142 72 142H54Q35 142 35 161V328Q35 348 55 348H103Q119 348 119 330V216Q119 196 105 177Z" fill="#F5CD7C"/>
+    <path d="M35 161Q35 125 69 125H91Q119 125 119 154V179H70Q54 179 54 195V216" fill="#FFE6A5"/>
+
+    <!-- right arm -->
+    <path d="M535 177Q535 142 568 142H586Q605 142 605 161V328Q605 348 585 348H537Q521 348 521 330V216Q521 196 535 177Z" fill="#F5CD7C"/>
+    <path d="M605 161Q605 125 571 125H549Q521 125 521 154V179H570Q586 179 586 195V216" fill="#FFE6A5"/>
+
+    <!-- feet -->
+    <path d="M112 370V389Q112 398 122 398H143Q153 398 153 389V370" fill="#8A5431" stroke-width="9"/>
+    <path d="M487 370V389Q487 398 497 398H518Q528 398 528 389V370" fill="#8A5431" stroke-width="9"/>
+  </g>
+
+  <!-- soft cushion highlights -->
+  <path d="M133 211Q145 204 164 204H284Q301 204 307 216"
+        fill="none" stroke="#FFF4D8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M335 216Q341 204 359 204H477Q495 204 507 211"
+        fill="none" stroke="#FFF4D8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M129 91Q147 80 171 80H287" fill="none" stroke="#FFF7E4" stroke-width="7" stroke-linecap="round"/>
+  <path d="M353 80H469Q493 80 511 91" fill="none" stroke="#FFF7E4" stroke-width="7" stroke-linecap="round"/>
+</svg>
