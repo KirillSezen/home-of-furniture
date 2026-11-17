@@ -1,15 +1,15 @@
 import type { Localized } from '../i18n/locales';
 
-import armchairPhoto from '../assets/armchair.png';
-import bedPhoto from '../assets/bed.png';
-import bedroomPhoto from '../assets/bedroom.png';
-import chestPhoto from '../assets/chest.png';
-import coffeeTablePhoto from '../assets/coffee-table.png';
-import diningRoomPhoto from '../assets/dining-room.png';
-import diningSetPhoto from '../assets/dining-set.png';
-import livingRoomPhoto from '../assets/living-room.png';
-import sofaPhoto from '../assets/sofa.png';
-import storagePhoto from '../assets/storage.png';
+import armchairPhoto from '../assets/armchair.webp';
+import bedPhoto from '../assets/bed.webp';
+import bedroomPhoto from '../assets/bedroom.webp';
+import chestPhoto from '../assets/chest.webp';
+import coffeeTablePhoto from '../assets/coffee-table.webp';
+import diningRoomPhoto from '../assets/dining-room.webp';
+import diningSetPhoto from '../assets/dining-set.webp';
+import livingRoomPhoto from '../assets/living-room.webp';
+import sofaPhoto from '../assets/sofa.webp';
+import storagePhoto from '../assets/storage.webp';
 
 /**
  * Каталог главной страницы: категории и демонстрационные товары.

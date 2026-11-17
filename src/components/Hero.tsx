@@ -3,7 +3,7 @@ import ImageSlot from './ImageSlot';
 
 import './Hero.css';
 
-import heroPhoto from '../assets/hero.png';
+import heroPhoto from '../assets/hero.webp';
 
 /** Первый экран: приветствие, заголовок и ссылки к каталогу и контактам. */
 function Hero() {
